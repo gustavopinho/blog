@@ -1,16 +1,24 @@
 body {
-    background-color: rgba(0,0,0,.1);
+    background-color: #FFFFFF;
 }
 .blog {
+    
     width: 900px;
-    padding-top: 50px;
     margin: auto;
+    margin-top: 20px;
+    padding-top: 10px;
+    background-color: #FFFFFF;
+    border-radius: 5px;
 }
 
 .container {
     margin: auto;
-    width: 1055px;
-    margin-top: 50px;    
+    width: 900px;
+    margin-top: 50px;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 .form {
@@ -25,15 +33,30 @@ body {
     float: right;
 }
 
+section {
+    width: 900px;
+    margin: auto;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.label-default {
+    background-color: #C2C2D6;
+    color: #29293D;
+}
+
 .post-article {
-    
+    margin: auto;
+    width: 880px;
     margin-bottom: 20px;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 25px;
+    padding-right: 25px;
     padding-top: 10px;
     padding-bottom: 10px;
-    
     background-color: #fff;
+    border: 1px solid #F5F5F5;
     border-radius: 3px;
 }
 
@@ -54,9 +77,7 @@ body {
 }
 
 .nav li a {
-    color: #556270;
-    font-weight: bold;
-    font-size: 18px;
+    font-size: 14px;
 }
 
 .no-link a:link, .no-link a:active, .no-link a:visited, .no-link a:hover{
@@ -67,15 +88,25 @@ body {
     width: 870px;
 }
 
-.delete {
+.link {
     cursor: pointer;
 }
 
 .blog-adm-login {
 
     width: 400px;
+    margin: auto;
     padding: 20px;
     background-color: #fff;
     border-radius: 11px;
     margin-bottom: 50px;
+}
+
+.blog-adm-post {
+    margin: auto;
+    width: 800px;
+}
+
+.provider {
+    
 }

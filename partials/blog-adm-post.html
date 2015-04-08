@@ -1,4 +1,4 @@
-<div>
+<div class="blog-adm-post">
     <div ng-show="authData">
         <h3 ng-if="!date"><span class="label label-default">Criar post</span></h3>
         <h3 ng-if="date"><span class="label label-default">Criado em {{date}} </span></h3>
@@ -25,11 +25,11 @@
         <div class="panel panel-default">
             <table class="table-condensed table-post-edit">
                 <tr ng-repeat="post in posts" class="row">
-                    <td class="col-lg-2"><span class="label label-default">{{post.date}}</span></td>
-                    <td class="col-lg-2"><span class="label label-default">{{post.$id}}</span></td>
-                    <td class="col-lg-7"><span class="post-title">{{post.title}}</span></td>
-                    <td class="col-lg-1"><a ng-click="edit(post.$id)"><span class="glyphicon glyphicon-pencil text-info"></span></a></td>
-                    <td class="col-lg-1"><span ng-click="delete(post.$id)" class="glyphicon glyphicon-remove text-danger delete"></span></td>
+                    <td class="col-lg-1"><span class="label label-default">{{post.date}}</span></td>
+                    <td class="col-lg-1"><span class="label label-default">{{post.$id}}</span></td>
+                    <td class="col-lg-6"><span class="post-title">{{post.title}}</span></td>
+                    <td class="col-lg-1"><span ng-click="edit(post.$id)" class="glyphicon glyphicon-pencil text-info link"></span></td>
+                    <td class="col-lg-1"><span ng-click="delete(post.$id)" class="glyphicon glyphicon-remove text-danger link"></span></td>
                 </tr>
             </table>
         </div>
@@ -43,7 +43,7 @@
                     <label>Usuário</label>
                 </div>
                 <div class="col-lg-4">
-                    <input type="text" name="username" ng-model="username">
+                    <input class="form-control" type="text" name="username" ng-model="username">
                 </div>
             </div>
             <br>
@@ -52,13 +52,13 @@
                     <label>Senha</label>
                 </div>
                 <div class="col-lg-4">
-                    <input type="password" name="password" ng-model="password">
+                    <input class="form-control" type="password" name="password" ng-model="password">
                 </div>
             </div>
             <br>
             <div class="row">
                 <div class="col-lg-1">
-                    <input type="submit" id="submit"  value="Login">
+                    <input class="form-control btn btn-default" type="submit" id="submit"  value="Login">
                 </div>
             </div>
         </form>

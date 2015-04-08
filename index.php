@@ -42,8 +42,8 @@
         <div class="navbar">
             <nav class="nav-inner">
                 <ul class="nav navbar-nav">
-                    <li><a href="#/">Archives</a></li>
-                    <li><a href="#/contato">Contact</a></li>
+                    <li><a href="#/">Arquivos</a></li>
+                    <li><a href="#/contato">Contato</a></li>
                 </ul>
             </nav>
         </div>
@@ -55,6 +55,9 @@
             <a href="http://blog.gustavopinho.com">
                 <span class="label label-default">&copy; 2015 - Jorge Gustavo dos Santos Pinho</span>
             </a>
+            <div class="provider">
+                
+            </div>
         </footer>
     </div>
 </body>
