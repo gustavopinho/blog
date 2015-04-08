@@ -1,0 +1,68 @@
+<div>
+    <div ng-show="authData">
+        <h3 ng-if="!date"><span class="label label-default">Criar post</span></h3>
+        <h3 ng-if="date"><span class="label label-default">Criado em {{date}} </span></h3>
+        <span ng-show="authData">
+            {{authData.password.email}} | <a ng-click="logout()">Logout</a>
+        </span>
+        <br>
+        <form ng-submit="save()" name="blog-form-post" ng-controller="AdmPost">
+            <p>
+                <label for="title">Título</label>
+                <input class="form-control" type="text" ng-model="title" name="title">
+            </p>
+            <p>
+                <textarea style="height: 900px;"  ckedit="text" name="text" ng-model="text"></textarea>
+            </p>
+            <p>
+                <input type="checkbox" name="published" ng-model="published" value="1"> Publicado?
+            </p>
+            <p>
+                <input type="submit" id="save"  value="Salvar">
+            </p>
+        </form>
+        <br>
+        <div class="panel panel-default">
+            <table class="table-condensed table-post-edit">
+                <tr ng-repeat="post in posts" class="row">
+                    <td class="col-lg-2"><span class="label label-default">{{post.date}}</span></td>
+                    <td class="col-lg-2"><span class="label label-default">{{post.$id}}</span></td>
+                    <td class="col-lg-7"><span class="post-title">{{post.title}}</span></td>
+                    <td class="col-lg-1"><a ng-click="edit(post.$id)"><span class="glyphicon glyphicon-pencil text-info"></span></a></td>
+                    <td class="col-lg-1"><span ng-click="delete(post.$id)" class="glyphicon glyphicon-remove text-danger delete"></span></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="blog-adm-login" ng-show="!authData">
+        <h3><span class="label label-default">Login</span></h3>
+
+        <form ng-submit="authenticate()" name="login" ng-controller="AdmPost">
+            <div class="row">
+                <div class="col-lg-2">
+                    <label>Usuário</label>
+                </div>
+                <div class="col-lg-4">
+                    <input type="text" name="username" ng-model="username">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-lg-2">
+                    <label>Senha</label>
+                </div>
+                <div class="col-lg-4">
+                    <input type="password" name="password" ng-model="password">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-lg-1">
+                    <input type="submit" id="submit"  value="Login">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+

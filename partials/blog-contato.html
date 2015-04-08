@@ -1,0 +1,45 @@
+<div class="blog-contato">
+	<h3><span class="label label-default">Contato</span></h3>
+	<span class="text-danger" ng-if="message.length > 3">{{message}}</span>
+	<form class="form" name="myForm" ng-submit="enviar()" ng-controller="Contato">
+		<div class="row">
+			<div class="col-lg-6">
+				<label for="name">Qual o seu nome?<span class="text-danger"> *</span></label>
+				<input class="form-control" type="text" name="name" ng-model="name" required>
+				<span class="text-danger" ng-show="myForm.name.$dirty && myForm.name.$invalid">
+					<span ng-show="myForm.name.$error.required">Username is required.</span>
+				</span>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-6">
+				<label for="mail">Qual o seu email?<span class="text-danger"> *</span></label>
+				<input class="form-control" type="email" name="email" ng-model="email.text" required>
+				<span class="text-danger" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+				  	<span ng-show="myForm.email.$error.required">Email is required.</span>
+				  	<span ng-show="myForm.email.$error.email">Invalid email address.</span>
+				</span>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-8">
+				<label for="text">Messagem</label>
+				<textarea maxlength="350" class="form-control" name="text" ng-model="text" required ></textarea>
+				<span class="text-danger" ng-show="myForm.text.$dirty && myForm.text.$invalid">
+					<span ng-show="myForm.text.$error.required">Message is required.</span>
+				</span>
+			</div>
+		</div>
+
+		<span ng-if="text.length <= 300" class="text-success" >{{350 - text.length}} caracteres restantes </span>
+		<span ng-if="text.length >= 300 && text.length <= 330" class="text-warning" >{{350 - text.length}} caracteres restantes</span>
+		<span ng-if="text.length >= 330" class="text-danger" > {{350 - text.length}} caracteres restantes </span>
+
+		<br>
+		<div class="row">
+			<div class="col-lg-8">
+				<input type="submit" ng-if="name && email.text && text" ng-disabled="myForm.name.$dirty && myForm.name.$invalid || myForm.email.$dirty && myForm.email.$invalid" value="Enviar" class="btn btn-info">
+			</div>
+		</div>
+	</form>
+</div>
