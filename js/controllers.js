@@ -2,7 +2,7 @@
 
 /* Controllers */
 
-var baseUrl = "http://localhost/blog";
+var baseUrl = "http://blog.gustavopinho.com";
 
 var blogControllers = angular.module('blogControllers',[]);
 
@@ -146,17 +146,19 @@ blogControllers.controller('AdmPost', ['$scope', '$routeParams', '$sce', 'Blog',
                         var id = ref.key();
                         $scope.edit(id);
                         console.log("added record with id " + id);
-                        $scope.posts.$indexFor(id); // returns location in the array
+                        $scope.posts.$indexFor(id);
                     });
                 }
                 else
                 {
+                    //Implementar update
+                    /*
                     $scope.posts[$scope.id] = { 'title' : $scope.title, 'text' : $scope.text, 'published' : pub, 'date' : date };
 
                     $scope.posts.$save($scope.id).then(function(ref) 
                     {
                         ref.key() === $scope.posts[$scope.id].$id; // true
-                    });
+                    });*/
                 }
             }
         }
@@ -214,6 +216,6 @@ blogControllers.controller('AdmPost', ['$scope', '$routeParams', '$sce', 'Blog',
 blogControllers.controller('Sobre', ['$scope', '$sce', 'Blog',
     function($scope, $sce, Blog){
         
-        
+        //Implementar
         
     }]);
