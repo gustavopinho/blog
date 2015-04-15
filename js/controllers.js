@@ -15,8 +15,6 @@ blogControllers.controller('Contato', ['$scope', '$window', 'Blog',
         $scope.text = "";
         $scope.message = "";
         
-        var $key = 'nD1SITFzdIm6WmsQpG6r0A';
-
         $scope.enviar = function()
         {
             var data = {
@@ -56,7 +54,7 @@ blogControllers.controller('Post', ['$scope', '$routeParams', '$sce', 'Blog', '$
 blogControllers.controller('Posts', ['$scope', '$sce', 'Blog', '$firebaseArray',
     function($scope, $sce, Blog, $firebaseArray){
         
-        $scope.posts = $firebaseArray(Blog.posts());
+        $scope.posts = $firebaseArray(Blog.posts().orderByChild("date"));
         
         $scope.html = function(value)
         {
@@ -77,16 +75,12 @@ blogControllers.controller('AdmPost', ['$scope', '$routeParams', '$sce', 'Blog',
 
         $scope.username = "";
         $scope.password = "";
-
-        //$scope.authObj = Auth;
         $scope.authData;
-
+        
         var ref = Blog.posts();
         
-        $scope.authObj = $firebaseAuth(ref);
-
-        $scope.posts = $firebaseArray(ref);
-        
+        $scope.posts    = $firebaseArray(ref);
+        $scope.authObj  = $firebaseAuth(ref);
         $scope.authData = $scope.authObj.$getAuth();
 
         if ($scope.authData) {
@@ -100,24 +94,30 @@ blogControllers.controller('AdmPost', ['$scope', '$routeParams', '$sce', 'Blog',
 
         $scope.edit = function(id)
         {
-            var refO = Blog.post(id);
+            var key;
             
-            var data = $firebaseObject(refO);
+            $scope.posts.$loaded()
+                .then(function(x) {
+                    
+                    key = x.$indexFor(id);
+                    
+                    if(key > -1)
+                    {
+                        $scope.id          = $scope.posts[key].$id;
+                        $scope.title       = $scope.posts[key].title;
+                        $scope.text        = String($sce.trustAsHtml($scope.posts[key].text));
+                        $scope.published   = $scope.posts[key].published = 1 ? true : false;
+                        $scope.date        = $scope.posts[key].date;
+                    }
+                    else
+                    {
+                        $window.alert("Post não encontrado!");
+                    }
+                })
+                .catch(function(error) {
+                  console.log("Error:", error);
+                });
             
-            data.$loaded()
-            .then(function(x) {
-                if(x === data)
-                {
-                    $scope.id          = x.$id;
-                    $scope.title       = x.title;
-                    $scope.text        = String($sce.trustAsHtml(x.text));
-                    $scope.published   = x.published = 1 ? true : false;
-                    $scope.date        = x.date;
-                }
-            })
-            .catch(function(error) {
-                console.log("Error:", error);
-            });
         }
         
         $scope.save = function()
@@ -130,14 +130,8 @@ blogControllers.controller('AdmPost', ['$scope', '$routeParams', '$sce', 'Blog',
                 
                 var date = "";
                 
-                date += today.getDate() < 10 ? String("0" + today.getDate()) : String(today.getDate());
-                
-                date += "/";
-                
-                date += today.getMonth()+1 < 10 ? String("0" + (today.getMonth()+1)) : String(today.getMonth()+1);
-                
-                date += "/";
-                
+                date += today.getDate() < 10 ? String("0" + today.getDate()) : String(today.getDate()) + "/";
+                date += today.getMonth()+1 < 10 ? String("0" + (today.getMonth()+1)) : String(today.getMonth()+1) + "/";
                 date += String(today.getFullYear()); 
                 
                 if(angular.isUndefined($scope.id))
@@ -151,29 +145,76 @@ blogControllers.controller('AdmPost', ['$scope', '$routeParams', '$sce', 'Blog',
                 }
                 else
                 {
-                    //Implementar update
-                    /*
-                    $scope.posts[$scope.id] = { 'title' : $scope.title, 'text' : $scope.text, 'published' : pub, 'date' : date };
+                    var key;
+                    
+                    $scope.posts.$loaded()
+                        .then(function(x) {
+                            
+                            key = x.$indexFor($scope.id);
+                            
+                            if(key > -1)
+                            {
+                                $scope.posts[key].text      = $scope.text;
+                                $scope.posts[key].title     = $scope.title;
+                                $scope.posts[key].published = pub;
 
-                    $scope.posts.$save($scope.id).then(function(ref) 
-                    {
-                        ref.key() === $scope.posts[$scope.id].$id; // true
-                    });*/
+                                $scope.posts.$save(key).then(function(ref) {
+                                    if(ref.key() === $scope.posts[key].$id)
+                                    {
+                                        $window.alert("Post atualizado com sucesso!");
+                                    }
+                                    else
+                                    {
+                                        $window.alert("Erro ao atualizar post!");
+                                    }
+                                });
+                            }
+                            else
+                            {
+                                $window.alert("Post não encontrado!");
+                            }
+                        })
+                        .catch(function(error) {
+                          console.log("Error:", error);
+                        });
                 }
             }
         }
         
         $scope.delete = function(id) {
             
-            var refO = Blog.post(id);
+            var key;
             
-            var data = $firebaseObject(refO);
-            
-            data.$remove().then(function(refO) {
-                // data has been deleted locally and in Firebase
-            }, function(error) {
-                console.log("Error:", error);
-            });
+            $scope.posts.$loaded()
+                .then(function(x) {
+                    
+                    key = x.$indexFor(id);
+                    if(key > -1)
+                    {
+                        var item = $scope.posts[key];
+
+                        $scope.posts.$remove(item).then(function(ref) 
+                        {
+                            if(ref.key() === item.$id)
+                            {
+                                $window.alert("Post removido com sucesso!");
+                                $window.location.reload();
+                            }
+                            else
+                            {
+                                $window.alert("Erro ao remover post!");
+                            }
+                        });
+                    }
+                    else
+                    {
+                        $window.alert("Post não encontrado!");
+                    }
+
+                })
+                .catch(function(error) {
+                  console.log("Error:", error);
+                });
         }
         
         $scope.authenticate = function() 
@@ -190,13 +231,7 @@ blogControllers.controller('AdmPost', ['$scope', '$routeParams', '$sce', 'Blog',
                 })
                 .catch(function(error) 
                 {
-                    if (error = 'INVALID_EMAIL') {
-                        console.log('Email invalido!');
-                    } else if (error = 'INVALID_PASSWORD') {
-                        console.log('Password errado!');
-                    } else {
-                        console.log(error);
-                    }
+                    alert(error);
                 });
             }
             else

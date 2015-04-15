@@ -102,6 +102,10 @@ section {
     margin-bottom: 50px;
 }
 
+.blog-adm-login label {
+    min-width: 80px;
+}
+
 .blog-adm-post {
     margin: auto;
     width: 800px;

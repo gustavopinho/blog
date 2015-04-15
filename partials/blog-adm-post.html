@@ -25,6 +25,7 @@
         <div class="panel panel-default">
             <table class="table-condensed table-post-edit">
                 <tr ng-repeat="post in posts" class="row">
+                    
                     <td class="col-lg-1"><span class="label label-default">{{post.date}}</span></td>
                     <td class="col-lg-1"><span class="label label-default">{{post.$id}}</span></td>
                     <td class="col-lg-6"><span class="post-title">{{post.title}}</span></td>
@@ -39,26 +40,26 @@
 
         <form ng-submit="authenticate()" name="login" ng-controller="AdmPost">
             <div class="row">
-                <div class="col-lg-2">
-                    <label>Usuário</label>
-                </div>
-                <div class="col-lg-4">
-                    <input class="form-control" type="text" name="username" ng-model="username">
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-lg-2">
-                    <label>Senha</label>
-                </div>
-                <div class="col-lg-4">
-                    <input class="form-control" type="password" name="password" ng-model="password">
+                <div class="col-lg-12">
+                    <div class="input-group">
+                        <label class="input-group-addon" id="basic-addon1">Usuário</label>
+                        <input class="form-control" type="text" name="username" ng-model="username" aria-describedby="basic-addon1">
+                    </div>
                 </div>
             </div>
             <br>
             <div class="row">
-                <div class="col-lg-1">
-                    <input class="form-control btn btn-default" type="submit" id="submit"  value="Login">
+                <div class="col-lg-12">
+                    <div class="input-group">
+                        <label class="input-group-addon" id="basic-addon2">Senha</label>
+                        <input class="form-control" type="password" name="password" ng-model="password" aria-describedby="basic-addon2">
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-lg-12">
+                    <input class="form-control btn btn-primary" type="submit" id="submit"  value="Login">
                 </div>
             </div>
         </form>
