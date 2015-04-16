@@ -78,6 +78,7 @@ section {
 
 .nav li a {
     font-size: 14px;
+    font-weight: bolder;
 }
 
 .no-link a:link, .no-link a:active, .no-link a:visited, .no-link a:hover{
@@ -111,6 +112,31 @@ section {
     width: 800px;
 }
 
+.title {
+    text-align: center;
+    font-family: 'Droid Serif', Georgia, serif;
+    color: #556270;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.social {
+    padding-top: 12px;
+    border: 1px solid #556270;
+    border-radius: 10px;
+    padding-top: 5px;
+    padding-bottom: 7px;
+    background-color: #F0F0F5;
+    float: right;
+}
+
 .provider {
-    
+    padding-top: 12px;
+}
+
+.provider a img {
+    width: 40px;
+    margin-top: 0px;
+    margin-left: 12px;
+    margin-right: 12px;
 }

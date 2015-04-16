@@ -1,5 +1,5 @@
 <section>
-    <article  class="post-article" ng-repeat="post in posts">
+    <article  class="post-article" ng-repeat="post in posts | orderBy:'-date'">
         <h4><a href="#/post/{{post.$id}}"><span class="post-title">{{post.title}}</span></a> <span class="label label-default aling-rigth">{{post.date}}</span></h4>
         <hr>
         <div class="post-body" ng-bind-html="html(post.text)"></div>

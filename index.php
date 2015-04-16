@@ -4,6 +4,15 @@
     <!-- Meta -->
     <meta charset="UTF-8">
     
+    <meta name="keywords" content="gustavo, pinho, tecnologia, programação, php, git, zend, zend2, framework">
+    <meta property="og:type" content="website">
+    <meta name="description" content="Gustavo Pinho">
+    <meta property="og:site_name" content="Gustavo Pinho">
+    <meta property="og:title" content="Blog Gustavo Pinho">
+    <meta property="og:url" content="http://blog.gustavopinho.com/">
+    <meta property="og:description" content="Blog Gustavo Pinho">
+    <meta property="og:locale" content="pt_BR">
+    
     <!-- Title -->
     <title>Gustavo Pinho</title>
     
@@ -40,6 +49,18 @@
 <body>
     <div class="blog">
         <div class="navbar">
+            <div class="title">Blog Gustavo Pinho</div>
+            <div class="provider social">
+                <a href="https://github.com/gustavopinho" target="_blank">
+                    <img src="img/github.png" alt="git">
+                </a>
+                <a href="https://twitter.com/JG_Pinho" target="_blank">
+                    <img src="img/twitter.png" alt="git">
+                </a>
+                <a href="https://plus.google.com/+JorgeGustavodosSantosPinho" target="_blank">
+                    <img src="img/g+.png" alt="git">
+                </a>
+            </div>
             <nav class="nav-inner">
                 <ul class="nav navbar-nav">
                     <li><a href="#/">Arquivos</a></li>
@@ -55,9 +76,6 @@
             <a href="http://blog.gustavopinho.com">
                 <span class="label label-default">&copy; 2015 - Jorge Gustavo dos Santos Pinho</span>
             </a>
-            <div class="provider">
-                
-            </div>
         </footer>
     </div>
 </body>
