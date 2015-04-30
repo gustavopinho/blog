@@ -2,7 +2,6 @@ body {
     background-color: #FFFFFF;
 }
 .blog {
-    
     width: 900px;
     margin: auto;
     margin-top: 20px;
@@ -10,7 +9,6 @@ body {
     background-color: #FFFFFF;
     border-radius: 5px;
 }
-
 .container {
     margin: auto;
     width: 900px;
@@ -20,19 +18,15 @@ body {
     padding-left: 0px;
     padding-right: 0px;
 }
-
 .form {
     margin: auto;
 }
-
 .form textarea {
     height: 100px;
 }
-
-.aling-rigth{
+.aling-rigth {
     float: right;
 }
-
 section {
     width: 900px;
     margin: auto;
@@ -41,12 +35,10 @@ section {
     padding-left: 0px;
     padding-right: 0px;
 }
-
 .label-default {
     background-color: #C2C2D6;
     color: #29293D;
 }
-
 .post-article {
     margin: auto;
     width: 880px;
@@ -59,42 +51,36 @@ section {
     border: 1px solid #F5F5F5;
     border-radius: 3px;
 }
-
 .post-body {
     overflow: auto;
     font-family: 'Droid Serif', Georgia, serif;
     font-size: 18px;
 }
-
 .post-body img {
     margin: auto;
 }
-
 .post-title {
     font-weight: bold;
     font-family: 'Droid Serif', Georgia, serif;
     color: #556270;
 }
-
 .nav li a {
     font-size: 14px;
     font-weight: bolder;
 }
-
-.no-link a:link, .no-link a:active, .no-link a:visited, .no-link a:hover{
+.no-link a:link,
+.no-link a:active,
+.no-link a:visited,
+.no-link a:hover {
     text-decoration: none;
 }
-
 .table-post-edit {
     width: 870px;
 }
-
 .link {
     cursor: pointer;
 }
-
 .blog-adm-login {
-
     width: 400px;
     margin: auto;
     padding: 20px;
@@ -102,16 +88,13 @@ section {
     border-radius: 11px;
     margin-bottom: 50px;
 }
-
 .blog-adm-login label {
     min-width: 80px;
 }
-
 .blog-adm-post {
     margin: auto;
     width: 800px;
 }
-
 .title {
     text-align: center;
     font-family: 'Droid Serif', Georgia, serif;
@@ -119,7 +102,6 @@ section {
     font-size: 20px;
     font-weight: bold;
 }
-
 .social {
     padding-top: 12px;
     border: 1px solid #556270;
@@ -129,11 +111,9 @@ section {
     background-color: #F0F0F5;
     float: right;
 }
-
 .provider {
     padding-top: 12px;
 }
-
 .provider a img {
     width: 40px;
     margin-top: 0px;
